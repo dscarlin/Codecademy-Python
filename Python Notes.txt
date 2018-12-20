@@ -498,6 +498,7 @@ You need the same number of %s terms in a string as the number of variables in p
 print "The %s who %s %s!" % ("Knights", "say", "Ni")
 # This will print "The Knights who say Ni!"
 
+Kd
 
 
 string = "toby"
