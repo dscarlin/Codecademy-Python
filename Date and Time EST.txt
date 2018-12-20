@@ -1,0 +1,74 @@
+def dateclock():
+
+  from datetime import datetime
+  now = datetime.now()
+  #imported datetime library
+
+  current_year = now.year
+  current_month = now.month
+  current_day = now.day
+  #defined current day, month, year (GMT)
+
+  current_hour = now.hour
+  current_minute = now.minute
+  current_second = now.second
+  #defined current time
+
+  if current_month == 1 and current_day == 1 and current_hour <6:
+    current_month = 12 ; current_day = 31 ; current_year -= 1
+  elif current_month == 3 and current_day == 1 and current_hour <6:
+    if current_year %4 == 0: 
+    	if current_year %100 == 0 and current_year %400 == 0:
+				current_month =2; current_day = 28
+        else:
+        	current_month == 2; current_day=29
+    else:
+  		current_month = 2 ;current_day = 28 
+  elif  current_hour <6 and current_day == 1 and (current_month == 10 or current_month == 12 or current_month == 5 or current_month ==7):
+    current_month -= 1 ; current_day = 30
+  elif current_day == 1 and current_hour <6:
+      current_month -= 1 ; current_day = 31
+  elif current_hour <6:
+      current_day -= 1
+  #adjusted date for time change
+
+  print "The date is currently: ""%02d/%02d/%04d" % (current_month, current_day, current_year)
+  #printed the date
+
+
+  if current_hour <= 23 and current_hour >=5:
+    current_hour -= 5
+  elif current_hour == 0:
+    current_hour = 19
+  elif current_hour == 4:
+    current_hour = 23
+  elif current_hour == 3:
+    current_hour = 22
+  elif current_hour == 2:
+    current_hour = 21
+  elif current_hour == 1:
+    current_hour = 20
+  #changed from GMT to EST
+
+  if  current_hour <=11:
+    ampm = "am"
+  elif current_hour >=12:
+    ampm = "pm"
+  #designated "am" or "pm"  
+
+
+  if current_hour >= 13:
+     current_hour -= 12 
+  else:
+    current_hour += 0
+  #changed from military to standard time
+
+
+  current_time = str(current_hour) + ":" + "%02d" % (current_minute) + ampm
+  #formatted current time with "am" or "pm" designator
+
+  print "The time is currently: " + current_time
+  #printed the current time in EST.
+
+
+dateclock ()
