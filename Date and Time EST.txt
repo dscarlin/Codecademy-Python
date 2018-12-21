@@ -32,13 +32,13 @@ def dateclock():
   elif current_day == 1 and current_hour <6:
       current_month -= 1 ; current_day = 31
   elif current_hour <6:
-      current_day -= 1 '''
+      current_day -= 1 
   #adjusted date for time change
-
+  '''
   print "The date is currently: ""%02d/%02d/%04d" % (current_month, current_day, current_year)
   #printed the date
+  
   '''
-
   if current_hour <= 23 and current_hour >=5:
     current_hour -= 5
   elif current_hour == 0:
